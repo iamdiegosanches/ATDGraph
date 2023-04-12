@@ -1,5 +1,5 @@
-#ifndef TADGRAFO_GRAFO_H
-#define TADGRAFO_GRAFO_H
+#ifndef TADGRAFO_GRAPH_H
+#define TADGRAFO_GRAPH_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -21,4 +21,4 @@ void add_directed_edge(TGraph * graph, int data);
 void add_undirected_edge(TGraph * graph, int data);
 void free_graph(TGraph *graph);
 
-#endif //TADGRAFO_GRAFO_H
+#endif //TADGRAFO_GRAPH_H
