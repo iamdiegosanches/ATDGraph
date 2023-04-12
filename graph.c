@@ -20,6 +20,11 @@ void add_directed_edge(TGraph *graph, int u, int v) {
     graph->count_edges++;
 }
 
+void add_undirected_edge(TGraph *graph, int u, int v) {
+    add_directed_edge(graph, u, v);
+    add_directed_edge(graph, v, u);
+}
+
 void printGraph(TGraph *graph) {
     for (int i = 0; i < graph->count_nodes; ++i) {
         printf(("%d:\n"), i);

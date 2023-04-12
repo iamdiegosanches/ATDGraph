@@ -3,8 +3,7 @@
 int main() {
     TGraph *g1 = create_graph(3);
 
-    add_directed_edge(g1, 0, 1);
-    add_directed_edge(g1, 1, 2);
+    add_undirected_edge(g1, 0, 1);
 
     printGraph(g1);
 
