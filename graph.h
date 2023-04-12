@@ -11,6 +11,7 @@ typedef struct {
 
 typedef struct {
     int count_nodes;
+    int count_edges;
     Node **adj_list;
 } TGraph;
 
