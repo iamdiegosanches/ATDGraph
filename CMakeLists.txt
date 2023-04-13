@@ -3,4 +3,4 @@ project(TADGrafo C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(TADGrafo main.c graph.c graph.h)
+add_executable(TADGrafo main.c graph.c graph.h stack.c stack.h)
