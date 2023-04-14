@@ -4,37 +4,33 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct cell
-{
+typedef struct cell {
     int item;
     struct cell *next;
 } TCell;
 
-typedef struct
-{
-    TCell* first;
-    TCell* last;
+typedef struct {
+    TCell *first;
+    TCell *last;
     int size;
 } TList;
 
-void FLVazia(TList *List);
+void ml_empty(TList *list);
 
-int Vazia(TList List);
+int is_empty(TList list);
 
-int Tamanho (TList List);
+int size(TList list);
 
-void Inserir (int x, TList *List);
+void insert(int x, TList *list);
 
-void LerProduto(int *x);
+void print_list(TList list);
 
-void Imprimir(TList list);
+int search2(TList list, int item);
 
-int Pesquisar2 (TList List, int Item);
+TCell *search(TList list, int item);
 
-TCell* Pesquisar (TList List, int Item);
+void delete(TList *list, int *item);
 
-void Excluir (TList *List, int *Item);
-
-void Liberar (TList *List);
+void free_list(TList *list);
 
 #endif //TADGRAFO_LIST_H
