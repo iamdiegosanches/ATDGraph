@@ -25,11 +25,11 @@ void insert(int x, TList *list);
 
 void print_list(TList list);
 
-int search2(TList list, int item);
-
 TCell *search(TList list, int item);
 
 void delete(TList *list, int *item);
+
+int delete_by_index(TList *list, int index);
 
 void free_list(TList *list);
 
