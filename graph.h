@@ -21,7 +21,7 @@ void add_directed_edge(TGraph *graph, int u, int v);
 
 void add_undirected_edge(TGraph *graph, int u, int v);
 
-int *bfs(TGraph *graph, int s);
+TList bfs(TGraph *graph, int s);
 
 void printGraph(TGraph *graph);
 

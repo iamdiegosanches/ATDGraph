@@ -27,7 +27,7 @@ void print_list(TList list) {
     TCell *aux;
     aux = list.first->next;
     while (aux != NULL) {
-        printf("%d\n", aux->item);
+        printf("%d ", aux->item);
         aux = aux->next;
     }
 }
@@ -68,7 +68,7 @@ int delete_by_index(TList *list, int index) {
             aux2 = aux1;
             aux1 = aux1->next;
         }
-        deleted_item = aux1->item;
+        deleted_item = aux1->next->item;
         if (aux2 == NULL)
             list->first = aux1->next;
         else
