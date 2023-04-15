@@ -1,7 +1,9 @@
 #include "graph.h"
 
 TGraph *create_graph(int num_vertices) {
+    assert(num_vertices >= 0);
     TGraph *graph = (TGraph *) malloc(sizeof(TGraph));
+    assert(graph != NULL);
     graph->count_nodes = num_vertices;
     graph->count_edges = 0;
     graph->adj_list = (Node **) malloc(num_vertices * sizeof(Node *));
@@ -16,16 +18,19 @@ TGraph *create_graph(int num_vertices) {
 }
 
 void add_directed_edge(TGraph *graph, int u, int v) {
+    assert(graph != NULL);
     graph->adj_list[u][v].data = v;
     graph->count_edges++;
 }
 
 void add_undirected_edge(TGraph *graph, int u, int v) {
+    assert(graph != NULL);
     add_directed_edge(graph, u, v);
     add_directed_edge(graph, v, u);
 }
 
 TList bfs(TGraph *graph, int s) {
+    assert(graph != NULL);
     int u;
     TList Q;
     TList R;
@@ -56,6 +61,7 @@ TList bfs(TGraph *graph, int s) {
 }
 
 void printGraph(TGraph *graph) {
+    assert(graph != NULL);
     for (int i = 0; i < graph->count_nodes; ++i) {
         printf(("%d:\n"), i);
         for (int j = 0; j < graph->count_nodes; ++j) {
@@ -67,6 +73,7 @@ void printGraph(TGraph *graph) {
 }
 
 void free_graph(TGraph *graph) {
+    assert(graph != NULL);
     for (int i = 0; i < graph->count_nodes; ++i) {
         free(graph->adj_list[i]);
     }
