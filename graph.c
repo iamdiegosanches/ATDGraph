@@ -45,7 +45,7 @@ TList bfs(TGraph *graph, int s) {
     *(desc + s) = 1;
 
     while (!is_empty(Q)) {
-        u = delete_by_index(&Q, 0);
+        u = delete_by_index(&Q, 1);
         for (int v = 0; v < graph->count_nodes; ++v) {
             if (graph->adj_list[u][v].data != -1) {
                 if (*(desc + v) == 0) {
@@ -57,6 +57,41 @@ TList bfs(TGraph *graph, int s) {
         }
     }
     free_list(&Q);
+    return R;
+}
+
+TList dfs(TGraph *graph, int s) {
+    assert(graph != NULL);
+    int u, pop;
+    TList S;
+    TList R;
+    ml_empty(&S);
+    ml_empty(&R);
+    int *desc = malloc(graph->count_nodes * sizeof(int));
+    for (int i = 0; i < graph->count_nodes; ++i) {
+        *(desc + i) = 0;
+    }
+    insert(s, &S);
+    insert(s, &R);
+    *(desc + s) = 1;
+    while (!is_empty(S)) {
+        u = S.last->item;
+        pop = 1;
+        for (int v = 0; v < graph->count_nodes; ++v) {
+            if (graph->adj_list[u][v].data != -1) {
+                if (*(desc + v) == 0) {
+                    pop = 0;
+                    insert(v, &S);
+                    insert(v, &R);
+                    *(desc + v) = 1;
+                    break;
+                }
+            }
+        }
+        if (pop == 1) {
+            delete_by_index(&S, size(S));
+        }
+    }
     return R;
 }
 
